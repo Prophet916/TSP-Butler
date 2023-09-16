@@ -1,0 +1,23 @@
+﻿Needs to have:
+1. Embed's that update autominer locations by using slash command builder
+	-command should be /solar system .. /planet
+
+2. Embeds that update "ships to kill" locations by using slash command builder
+	-commands should be /ship type .. /solar system .. /sector
+
+3. Embeds that update dronite field locations by using slash command builder
+	-commands should be /solar system .. /planet
+
+4. Embeds that update best poi spots locations by using slash command builder
+	-commands should be /poi type .. /solar system ../sector .. /planet (optional)
+
+4. Embeds that update trader locations by using slash command builder
+	-commands should be /trader location type .. /solar system ../sector .. /planet (optional)
+
+Nice to have:
+1. Semi preloaded orders generator
+	-whats needed for this still to be decided
+
+
+Wish List:
+1. Break down of resources needed for equipment items like turrets/thursters/etc
