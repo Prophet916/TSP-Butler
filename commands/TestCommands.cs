@@ -13,6 +13,7 @@ namespace TSP_Butler.commands
     public class TestCommands : BaseCommandModule
     {
         [Command("test")]
+        [Cooldown(2, 10, CooldownBucketType.User)]
         public async Task MyFirstCommand(CommandContext ctx)
         {
             await ctx.Channel.SendMessageAsync("Hello");

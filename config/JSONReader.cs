@@ -12,6 +12,7 @@ namespace TSP_Butler.config
     {
         public string token { get; set; }
         public string prefix { get; set; }
+        public string mongoDBConnection { get; set; }
 
         public async Task ReadJSON()
         {
@@ -22,6 +23,7 @@ namespace TSP_Butler.config
 
                 this.token = data.token;
                 this.prefix = data.prefix;
+                this.mongoDBConnection = data.mongoDBConnection;
             }
         }
     }
@@ -31,4 +33,5 @@ internal sealed class JSONStructure
 {
     public string token { set; get;  }
     public string prefix { set; get; }
+    public string mongoDBConnection { set; get;}
 }
