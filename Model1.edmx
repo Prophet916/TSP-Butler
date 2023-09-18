@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AutominerLocations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="SolarSystem" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Planet" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DroniteFields">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="SolarSystem" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sector" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsCleared" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="POISpots">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="SolarSystem" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sector" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OnPlanet" Type="bit" Nullable="false" />
+          <Property Name="Planet" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ShipsToKill">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ShipName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SolarSystem" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sector" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TraderLocations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TraderName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SolarSystem" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sector" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="HasPlanet" Type="bit" Nullable="false" />
+          <Property Name="PlanetName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="AutominerLocations" EntityType="Self.AutominerLocations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DroniteFields" EntityType="Self.DroniteFields" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POISpots" EntityType="Self.POISpots" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShipsToKill" EntityType="Self.ShipsToKill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TraderLocations" EntityType="Self.TraderLocations" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AutominerLocation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="SolarSystem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Planet" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DroniteField">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="SolarSystem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sector" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsCleared" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="POISpot">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="SolarSystem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sector" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OnPlanet" Type="Boolean" Nullable="false" />
+          <Property Name="Planet" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ShipsToKill">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ShipName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SolarSystem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sector" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TraderLocation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TraderName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SolarSystem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sector" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HasPlanet" Type="Boolean" Nullable="false" />
+          <Property Name="PlanetName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AutominerLocations" EntityType="Self.AutominerLocation" />
+          <EntitySet Name="DroniteFields" EntityType="Self.DroniteField" />
+          <EntitySet Name="POISpots" EntityType="Self.POISpot" />
+          <EntitySet Name="ShipsToKills" EntityType="Self.ShipsToKill" />
+          <EntitySet Name="TraderLocations" EntityType="Self.TraderLocation" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="AutominerLocations">
+            <EntityTypeMapping TypeName="Model.AutominerLocation">
+              <MappingFragment StoreEntitySet="AutominerLocations">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SolarSystem" ColumnName="SolarSystem" />
+                <ScalarProperty Name="Planet" ColumnName="Planet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DroniteFields">
+            <EntityTypeMapping TypeName="Model.DroniteField">
+              <MappingFragment StoreEntitySet="DroniteFields">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SolarSystem" ColumnName="SolarSystem" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="IsCleared" ColumnName="IsCleared" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POISpots">
+            <EntityTypeMapping TypeName="Model.POISpot">
+              <MappingFragment StoreEntitySet="POISpots">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SolarSystem" ColumnName="SolarSystem" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="OnPlanet" ColumnName="OnPlanet" />
+                <ScalarProperty Name="Planet" ColumnName="Planet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShipsToKills">
+            <EntityTypeMapping TypeName="Model.ShipsToKill">
+              <MappingFragment StoreEntitySet="ShipsToKill">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+                <ScalarProperty Name="SolarSystem" ColumnName="SolarSystem" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TraderLocations">
+            <EntityTypeMapping TypeName="Model.TraderLocation">
+              <MappingFragment StoreEntitySet="TraderLocations">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TraderName" ColumnName="TraderName" />
+                <ScalarProperty Name="SolarSystem" ColumnName="SolarSystem" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="HasPlanet" ColumnName="HasPlanet" />
+                <ScalarProperty Name="PlanetName" ColumnName="PlanetName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

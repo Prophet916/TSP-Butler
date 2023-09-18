@@ -11,12 +11,13 @@ namespace TSP_Butler.config
     public class DataBaseAccess
     {
         private IMongoCollection<BlackPyramidLocation> _blackPyramidLocations;
+        private IMongoClient _client;
 
         public DataBaseAccess(string connectionString, string databaseName)
         {
-            var client = new MongoClient(connectionString);
-            var database = client.GetDatabase(databaseName);
-            _blackPyramidLocations = database.GetCollection<BlackPyramidLocation>("blackpyramidlocations");
+            _client = new MongoClient(connectionString);
+            var database = _client.GetDatabase(databaseName);
+            _blackPyramidLocations = database.GetCollection<BlackPyramidLocation>("BlackPyramidLocations");
         }
 
         public void InsertBlackPyramidLocation(BlackPyramidLocation location)
@@ -46,6 +47,17 @@ namespace TSP_Butler.config
                 // Handle the exception or log it
                 Console.WriteLine($"MongoDB connection failed: {ex.Message}");
                 return false; // Connection failed
+            }
+        }
+
+        public void ListDatabases(IMongoClient client)
+        {
+            var databaseNames = _client.ListDatabaseNames().ToList();
+
+            Console.WriteLine("Available Databases:");
+            foreach (var dbName in databaseNames)
+            {
+                Console.WriteLine(dbName);
             }
         }
     }

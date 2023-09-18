@@ -12,13 +12,14 @@ namespace TSP_Butler.Slash_Commands
 {
     public class Poi : ApplicationCommandModule
     {
-        public readonly DataBaseAccess _dbAccess;
-
         public Poi(DataBaseAccess dbAccess)
         {
             Console.WriteLine("DB Access beginning");
             _dbAccess = dbAccess;
         }
+
+        public readonly DataBaseAccess _dbAccess;
+
         [SlashCommand("black-pyramid", "Add a Black Pyramid location")]
         public async Task BlackPyramidLocation(InteractionContext ctx,
         [Option("SolarSystem", "Name of the solar system")] string solarSystem,
@@ -49,7 +50,7 @@ namespace TSP_Butler.Slash_Commands
             Console.WriteLine("Get locations complete");
 
             // Create an embed to display the locations
-            var embedBP = new DiscordEmbedBuilder
+            var embedBP = new DiscordEmbedBuilder(
             {
                 Title = "Black Pyramid Locations:"
             };

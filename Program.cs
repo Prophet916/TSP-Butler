@@ -7,6 +7,8 @@ using DSharpPlus.Interactivity;
 using DSharpPlus.Interactivity.Extensions;
 using DSharpPlus.SlashCommands;
 using Microsoft.Extensions.Configuration;
+using MongoDB.Driver.Core.Configuration;
+using MongoDB.Driver;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -49,7 +51,8 @@ namespace TSP_Butler
             Client = new DiscordClient(discordConfig);
 
             // Initialize database access
-            DbAccess = new DataBaseAccess(mongo, "bob"); // Replace with your actual database name
+            DbAccess = new DataBaseAccess(mongo, "tsp"); // Replace with your actual database name
+            //DbAccess.ListDatabases();
 
             try
             {
@@ -63,6 +66,18 @@ namespace TSP_Butler
                 Console.WriteLine($"Failed to connect to MongoDB: {ex.Message}");
                 return; // Exit the program if the connection fails
             }
+
+            //--------------------------------
+            var databaseName = "tsp"; // Default database name
+            var client = new MongoClient(mongo);
+
+            // Print the list of databases
+            DbAccess.ListDatabases(client);
+
+            var database = client.GetDatabase(databaseName);
+            Console.WriteLine(database.DatabaseNamespace.DatabaseName);
+            //--------------------------
+
 
 
             // Default timeout for commands that use interactivity
