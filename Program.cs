@@ -29,6 +29,7 @@ namespace TSP_Butler
         public static CommandsNextExtension Commands { get; set; }
         public static DataBaseAccess DbAccess { get; private set; }
 
+
         static async Task Main(string[] args)
         {
             var testChan = 590783288386519060;
@@ -116,6 +117,7 @@ namespace TSP_Butler
             Console.WriteLine("Registering black command");
             slashCommandConfig.RegisterCommands<Poi>(590783286503145473);
             Console.WriteLine("Registering black command complete");
+            slashCommandConfig.RegisterCommands<ShipsSL>(590783286503145473);
 
 
             await Client.ConnectAsync();

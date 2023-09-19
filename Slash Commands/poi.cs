@@ -50,7 +50,7 @@ namespace TSP_Butler.Slash_Commands
             Console.WriteLine("Get locations complete");
 
             // Create an embed to display the locations
-            var embedBP = new DiscordEmbedBuilder(
+            var embedBP = new DiscordEmbedBuilder()
             {
                 Title = "Black Pyramid Locations:"
             };
